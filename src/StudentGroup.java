@@ -100,10 +100,14 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		if(student==null||index<0||index>students.length) throw new IllegalArgumentException();
 		int i=students.length-1;
+		if(students[index]==null)
+			students[index]=student;
+		else{
 		for(;i>index;i--){
 			students[i]=students[i-1];
 		}
 		students[i]=student;
+		}
 	}
 
 	@Override
@@ -153,11 +157,7 @@ public class StudentGroup implements StudentArrayOperation {
 	public void removeToIndex(int index) {
 		// Add your implementation here
 		if(index<0||index>students.length) throw new IllegalArgumentException();
-		int j=index;
-		for(int i=0;index<students.length;index++){students[i]=students[i+index];index++;}
-		while(j<students.length){
-			students[j++]=null;
-		}
+		System.arraycopy(students,index,students,0,students.length-index-1);
 	}
 
 	@Override
