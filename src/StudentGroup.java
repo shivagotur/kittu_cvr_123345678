@@ -202,12 +202,15 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
-		if(firstDate==null||lastDate==null) throw new IllegalArgumentException();
-		ArrayList<Student> al=new ArrayList<>();
-		for(int i=0;i<students.length;i++){
-			if(students[i].getBirthDate().compareTo(firstDate)>=0 && students[i].getBirthDate().compareTo(lastDate)<=0){al.add(students[i]);}
+		int i=0,j=0;
+		Student s[]=new Student[students.length-1];
+		for(i=0;i<students.length-1;i++){
+			if((students[i].getBirthDate()).after(firstDate)&&(students[i].getBirthDate()).before(lastDate)){
+			s[j++]=students[i];	
+			}
+				
 		}
-		return (Student[]) al.toArray();
+		return s;
 	}
 
 	@Override
