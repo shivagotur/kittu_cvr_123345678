@@ -264,7 +264,12 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		if(student==null) throw new IllegalArgumentException();
 		for(int i=0;i<students.length;i++){
-			if(student.compareTo(students[i])==0&&i<students.length-2) return students[i+1];
+			if(student.compareTo(students[i])==0){
+				for(int j=i+1;j<students.length;j++){
+					if(students[j]!=null)
+						return students[j];
+				}
+			}
 		}
 		return null;
 	}
