@@ -82,22 +82,25 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
-		if(student==null) throw new IllegalArgumentException();
-		int i=0;
-		for(;i<students.length;i++)
-			if(students[i]==null) break;
-		if(i<students.length){
-			
-			for(;i<students.length;i++){
-				try{
-					students[i]=students[i+1];
-				}catch(Exception e){}
+		if(student==null)
+				throw new IllegalArgumentException();
+			if(count==len)
+				throw new IllegalArgumentException();
+			else{
+				 Student s;
+				for(int i=len-1;i>=0;i--){
+					 if(students[i]==null){
+						 continue;
+					 }else{
+					
+					 students[i+1]=student;
+					break;
+					
+					 }
+					 
 				}
-			students[i]=student;
+				count++;
 			}
-		else{
-			throw new IllegalArgumentException();
-		}
 		
 	}
 
