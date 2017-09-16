@@ -84,11 +84,10 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		if(student==null)
 				throw new IllegalArgumentException();
-			if(count==len)
-				throw new IllegalArgumentException();
+			
 			else{
 				 Student s;
-				for(int i=len-1;i>=0;i--){
+				for(int i=students.length-1;i>=0;i--){
 					 if(students[i]==null){
 						 continue;
 					 }else{
